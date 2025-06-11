@@ -1,7 +1,18 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { provideRouter, Route } from '@angular/router';
 
-import { routes } from './app.routes';
+import { RecipesList } from './recipes-list/recipes-list';
+import { RecipeDetail } from './recipe-detail/recipe-detail';
+import { RecipeForm } from './recipe-form/recipe-form';
+import { ConfirmDialog } from './confirm-dialog/confirm-dialog';
+
+const routes: Route[] = [
+  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  { path: 'recipes', component: RecipesList },
+  { path: 'recipes/new', component: RecipeForm },
+  { path: 'recipes/:id', component: RecipeDetail },
+  { path: 'recipes/:id/edit', component: RecipeForm },
+];
 
 export const appConfig: ApplicationConfig = {
   providers: [

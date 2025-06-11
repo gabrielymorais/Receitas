@@ -1,0 +1,23 @@
+<div class="detail-container" *ngIf="receita">
+  <img
+    class="recipe-img"
+    [src]="receita.imagemUrl || 'https://via.placeholder.com/600x300?text=Sem+Imagem'"
+    alt="Imagem da Receita"
+  />
+
+  <h2><strong>{{ receita.nome }}</strong></h2>
+
+  <p><strong>Categoria:</strong> {{ receita.categoria }}</p>
+  <p><strong>Tempo de preparo:</strong> {{ receita.tempoPreparo }} minutos</p>
+
+  <h3>Ingredientes</h3>
+  <p>{{ receita.ingredientes }}</p>
+
+  <h3>Modo de Preparo</h3>
+  <p>{{ receita.modoPreparo }}</p>
+
+  <button (click)="router.navigate(['/recipes'])">Voltar</button>
+  <button class="editar" (click)="editar()">Editar</button>
+  <button class="excluir" (click)="excluir()">Excluir</button>
+</div>
+

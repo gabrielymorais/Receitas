@@ -1,0 +1,29 @@
+<div class="form-container">
+  <h2>Cadastrar Receita</h2>
+
+  <form [formGroup]="recipeForm" (ngSubmit)="salvarReceita()">
+    <label for="nome">Nome:</label>
+    <input id="nome" type="text" formControlName="nome" />
+
+    <label for="ingredientes">Ingredientes:</label>
+    <textarea id="ingredientes" formControlName="ingredientes"></textarea>
+
+    <label for="modoPreparo">Modo de Preparo:</label>
+    <textarea id="modoPreparo" formControlName="modoPreparo"></textarea>
+
+    <label for="tempoPreparo">Tempo de Preparo (min):</label>
+    <input id="tempoPreparo" type="number" formControlName="tempoPreparo" />
+
+    <label for="categoria">Categoria:</label>
+    <select id="categoria" formControlName="categoria">
+      <option *ngFor="let cat of categorias" [value]="cat">{{ cat }}</option>
+    </select>
+
+    <label for="imagemUrl">Imagem (URL):</label>
+    <input id="imagemUrl" type="text" formControlName="imagemUrl" />
+
+    <button type="submit" [disabled]="recipeForm.invalid">Salvar Receita</button>
+    <button type="button" class="cancelar" (click)="cancelar()">Cancelar</button>
+  </form>
+</div>
+
