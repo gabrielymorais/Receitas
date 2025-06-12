@@ -1,59 +1,111 @@
-# Receitas
+# 📖 Receitas App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.2.
+Um aplicativo web para **cadastrar, visualizar, editar e excluir receitas culinárias**, com suporte a **modo escuro**, **upload de imagens** e **armazenamento local**. Desenvolvido com ❤️ usando **Angular 20 (standalone components)**.
 
-## Development server
+![Banner](./src/assets/banner.png) <!-- Coloque aqui uma imagem geral da aplicação -->
 
-To start a local development server, run:
+---
 
+## 🚀 Funcionalidades
+
+- 📋 Cadastro de receitas com imagem e categoria  
+- 🔍 Listagem com **filtro por nome** e **categoria**  
+- 🖼️ Upload de imagem **via URL ou arquivo local**
+- 🌙 **Modo escuro** estilizado  
+- ✏️ Edição de receitas  
+- 🗑️ Exclusão com confirmação via modal  
+- 💾 Armazenamento com `localStorage`
+
+---
+
+## 🧑‍🍳 Prints da aplicação
+
+### 🌅 Tema Claro
+
+ | Formulário de Cadastro | Modals  |
+------------------------|------------------------|
+| ![Cadastro](./src/assets/formlight.png) |![Cadastro](./src/assets/modal.png) |
+
+### 🌙 Tema Escuro
+
+| Visualização Detalhada | 
+|------------------------|
+| ![Detalhes](./src/assets/detaildark.png) |
+
+---
+
+## ⚙️ Como rodar o projeto
+
+### 🔧 Pré-requisitos
+
+- [Node.js](https://nodejs.org/) v18+  
+- [Angular CLI](https://angular.io/cli) (v16+)
+
+### 📦 Instalação
+
+1. **Clone o repositório:**
+
+```bash
+git clone https://github.com/gabrielymorais/receitas-app.git
+cd receitas-app
+```
+### 📦 Instalação de Dependencias
+```bash
+npm install
+```
+
+### ⚙️ Rode o Projeto
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 📁 Estrutura de Pastas
 
 ```bash
-ng generate component component-name
+📁src/
+├── 📁app/
+│   ├── 📁modal/       # Modal reutilizável para confirmações
+│   │   ├── modal.ts
+│   │   └── modal.html
+│   ├── 📁recipe-detail/        # Tela de visualização detalhada da receita
+│   │   ├── recipe-detail.ts
+│   │   └── recipe-detail.html
+│   ├── 📁recipe-form/          # Tela de cadastro e edição de receitas
+│   │   ├── recipe-form.ts
+│   │   └── recipe-form.html
+│   ├── 📁recipes-list/         # Tela de listagem de todas as receitas
+│   │   ├── recipes-list.ts
+│   │   └── recipes-list.html
+│   ├── app.config.ts         # Arquivo de configuração principal com rotas
+│   └── app.ts                # Componente raiz da aplicação
+├── 📁assets/                   # Recursos estáticos (imagens, ícones, etc)
+├── index.html                # HTML principal da aplicação
+└── styles.css                # Estilos globais da aplicação
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+## 🛠️ Tecnologias Usadas
 
-## Building
+| Tecnologia            | Descrição                                                                 |
+|------------------------|---------------------------------------------------------------------------|
+| ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white) | Framework principal para criação da SPA |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) | Linguagem com tipagem estática utilizada no projeto |
+| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) | Marcação das páginas |
+| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) | Estilização moderna e responsiva |
+| ![LocalStorage](https://img.shields.io/badge/LocalStorage-yellow?style=for-the-badge) | Armazenamento local das receitas no navegador |
+| ![Angular Standalone](https://img.shields.io/badge/Standalone%20Components-20.0.0-blueviolet?style=for-the-badge) | Utilização do novo padrão de componentes standalone |
+| 🌓 Modo Dark/Light    | Alternância de tema utilizando `ngClass` com estilos dinâmicos             |
+| 💬 Modal Customizado  | Modal de confirmação feito artesanalmente (sem dependências externas)      |
 
-To build the project run:
 
-```bash
-ng build
-```
+## 🎥 Demonstração em Vídeo
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Confira no vídeo abaixo como a aplicação funciona na prática:
 
-## Running unit tests
+[![Assista no YouTube](https://img.youtube.com/vi/SEU_VIDEO_ID_AQUI/0.jpg)](https://www.youtube.com/watch?v=SEU_VIDEO_ID_AQUI)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+> 🔗 Ou clique [aqui para assistir diretamente no YouTube](https://www.youtube.com/watch?v=SEU_VIDEO_ID_AQUI)
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
