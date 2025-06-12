@@ -88,3 +88,11 @@ button.cancelar {
 button.cancelar:hover{
   background-color: #f71010;
 }
+
+.preview img {
+  max-width: 300px;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}

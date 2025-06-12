@@ -22,6 +22,12 @@
     <label for="imagemUrl">Imagem (URL):</label>
     <input id="imagemUrl" type="text" formControlName="imagemUrl" />
 
+    <label for="imagem">Ou envie uma imagem:</label>
+    <input type="file" id="imagem" (change)="onImagemSelecionada($event)" accept="image/*" />
+
+    <div *ngIf="previewImagem" class="preview">
+      <img [src]="previewImagem" alt="Preview da imagem" />
+    </div>
     <button type="submit" [disabled]="recipeForm.invalid">Salvar Receita</button>
     <button type="button" class="cancelar" (click)="cancelar()">Cancelar</button>
   </form>
