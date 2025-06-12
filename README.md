@@ -102,9 +102,7 @@ ng serve
 
 Confira no vídeo abaixo como a aplicação funciona na prática:
 
-[![Assista no YouTube](https://img.youtube.com/vi/SEU_VIDEO_ID_AQUI/0.jpg)](https://www.youtube.com/watch?v=SEU_VIDEO_ID_AQUI)
-
-> 🔗 Ou clique [aqui para assistir diretamente no YouTube](https://www.youtube.com/watch?v=SEU_VIDEO_ID_AQUI)
+> 🔗 Clique [aqui para assistir diretamente no YouTube](https://youtu.be/atSxz8aOEKI)
 
 ---
 
