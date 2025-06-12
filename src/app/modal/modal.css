@@ -27,10 +27,18 @@
   gap: 0.5rem;
 }
 
-button {
+.sim {
   padding: 0.4rem 1rem;
   border: none;
-  background-color: #6055FF;
+  background-color: #3fe04d;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cancelar {
+  padding: 0.4rem 1rem;
+  border: none;
+  background-color: #e03f3f;
   color: white;
   border-radius: 4px;
   cursor: pointer;

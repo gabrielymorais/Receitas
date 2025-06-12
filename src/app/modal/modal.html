@@ -3,8 +3,8 @@
     <h2>{{ titulo }}</h2>
     <p>{{ mensagem }}</p>
     <div class="modal-actions">
-      <button (click)="fechar(true)">OK</button>
-      <button *ngIf="podeCancelar" (click)="fechar(false)">Cancelar</button>
+      <button class="sim" (click)="fechar(true)">Sim</button>
+      <button class="cancelar" *ngIf="podeCancelar" (click)="fechar(false)">Cancelar</button>
     </div>
   </div>
 </div>
