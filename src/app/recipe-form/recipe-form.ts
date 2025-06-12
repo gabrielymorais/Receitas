@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   standalone: true,
   templateUrl: './recipe-form.html',
   styleUrls: ['./recipe-form.css'],
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, CommonModule],
 })
 export class RecipeForm implements OnInit {
   recipeForm: FormGroup;
