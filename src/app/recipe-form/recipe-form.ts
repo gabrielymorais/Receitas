@@ -26,7 +26,7 @@ export class RecipeForm implements OnInit {
       nome: ['', Validators.required],
       ingredientes: ['', Validators.required],
       modoPreparo: ['', Validators.required],
-      tempoPreparo: ['', Validators.required],
+      tempoPreparo: ['', Validators.required, Validators.min(1)],
       categoria: ['', Validators.required],
       imagemUrl: [''],
     });
