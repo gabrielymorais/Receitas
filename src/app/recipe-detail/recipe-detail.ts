@@ -1,45 +1,59 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
+import { Modal } from '../modal/modal';
 
 @Component({
   selector: 'app-recipe-detail',
   standalone: true,
   templateUrl: './recipe-detail.html',
   styleUrls: ['./recipe-detail.css'],
-  imports: [NgIf],
+  imports: [NgIf, Modal],
 })
 export class RecipeDetail implements OnInit {
   receita: any;
+  receitaId!: number;
+
+  showConfirmModal = false;
+  showSuccessModal = false;
+  mensagemModal = '';
 
   constructor(private route: ActivatedRoute, public router: Router) {}
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.receitaId = Number(this.route.snapshot.paramMap.get('id'));
     const receitas = JSON.parse(localStorage.getItem('receitas') || '[]');
-    this.receita = receitas[id];
+    this.receita = receitas[this.receitaId];
 
     if (!this.receita) {
-      alert('Receita não encontrada!');
-      this.router.navigate(['/recipes']);
+      this.mensagemModal = 'Receita não encontrada!';
+      this.showSuccessModal = true;
     }
   }
 
   editar() {
-  this.router.navigate(['/recipes', this.route.snapshot.paramMap.get('id'), 'edit']);
-}
+    this.router.navigate(['/recipes', this.receitaId, 'edit']);
+  }
+
   excluir() {
-    const confirmar = confirm('Tem certeza que deseja excluir esta receita?');
+    this.showConfirmModal = true;
+  }
 
-    if (confirmar) {
-      const id = Number(this.route.snapshot.paramMap.get('id'));
+  confirmarExclusao(confirmado: boolean) {
+    this.showConfirmModal = false;
+
+    if (confirmado) {
       const receitas = JSON.parse(localStorage.getItem('receitas') || '[]');
+      receitas.splice(this.receitaId, 1);
+      localStorage.setItem('receitas', JSON.stringify(receitas));
 
-      receitas.splice(id, 1); // Remove do array
-      localStorage.setItem('receitas', JSON.stringify(receitas)); // Atualiza
-
-      alert('Receita excluída com sucesso!');
-      this.router.navigate(['/recipes']);
+      this.mensagemModal = 'Receita excluída com sucesso!';
+      this.showSuccessModal = true;
     }
+  }
+
+  fecharModalSucesso() {
+    this.showSuccessModal = false;
+    this.router.navigate(['/recipes']);
   }
 }

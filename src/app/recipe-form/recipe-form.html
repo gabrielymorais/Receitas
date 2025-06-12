@@ -1,5 +1,5 @@
 <div class="form-container">
-  <h2>Cadastrar Receita</h2>
+  <h2>{{ editando ? 'Editar Receita' : 'Cadastrar Receita' }}</h2>
 
   <form [formGroup]="recipeForm" (ngSubmit)="salvarReceita()">
     <label for="nome">Nome:</label>
@@ -20,7 +20,7 @@
     </select>
 
     <label for="imagemUrl">Imagem (URL):</label>
-    <input id="imagemUrl" type="text" formControlName="imagemUrl" />
+    <input id="imagemUrl" type="text" formControlName="imagemUrl" (input)="atualizarPreviewPorUrl()" />
 
     <label for="imagem">Ou envie uma imagem:</label>
     <input type="file" id="imagem" (change)="onImagemSelecionada($event)" accept="image/*" />
@@ -28,8 +28,25 @@
     <div *ngIf="previewImagem" class="preview">
       <img [src]="previewImagem" alt="Preview da imagem" />
     </div>
+
     <button type="submit" [disabled]="recipeForm.invalid">Salvar Receita</button>
     <button type="button" class="cancelar" (click)="cancelar()">Cancelar</button>
   </form>
-</div>
 
+  <!-- Modal de confirmação -->
+  <app-modal
+    *ngIf="showConfirmModal"
+    [titulo]="'Confirmação'"
+    [mensagem]="'Deseja salvar esta receita?'"
+    (confirmado)="confirmarSalvar($event)">
+  </app-modal>
+
+  <!-- Modal de sucesso -->
+  <app-modal
+    *ngIf="showSuccessModal"
+    [titulo]="'Sucesso'"
+    [mensagem]="mensagemSucesso"
+    [podeCancelar]="false"
+    (confirmado)="fecharModalSucesso()">
+  </app-modal>
+</div>

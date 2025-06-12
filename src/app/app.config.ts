@@ -4,7 +4,6 @@ import { provideRouter, Route } from '@angular/router';
 import { RecipesList } from './recipes-list/recipes-list';
 import { RecipeDetail } from './recipe-detail/recipe-detail';
 import { RecipeForm } from './recipe-form/recipe-form';
-import { ConfirmDialog } from './confirm-dialog/confirm-dialog';
 
 const routes: Route[] = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
@@ -18,6 +17,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideRouter(routes)
+    provideRouter(routes),
+
   ]
 };

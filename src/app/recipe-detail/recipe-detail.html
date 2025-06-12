@@ -21,3 +21,20 @@
   <button class="excluir" (click)="excluir()">Excluir</button>
 </div>
 
+<app-modal
+  *ngIf="showConfirmModal"
+  [titulo]="'Confirmação'"
+  [mensagem]="'Tem certeza que deseja excluir esta receita?'"
+  (confirmado)="confirmarExclusao($event)">
+</app-modal>
+
+<app-modal
+  *ngIf="showSuccessModal"
+  [titulo]="'Sucesso'"
+  [mensagem]="mensagemModal"
+  [podeCancelar]="false"
+  (confirmado)="fecharModalSucesso()">
+</app-modal>
+
+
+
