@@ -1,4 +1,4 @@
-# 📖 Receitas App
+# 📖 Receitas Web
 
 Um aplicativo web para **cadastrar, visualizar, editar e excluir receitas culinárias**, com suporte a **modo escuro**, **upload de imagens** e **armazenamento local**. Desenvolvido com ❤️ usando **Angular 20 (standalone components)**.
 
